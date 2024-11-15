@@ -1,5 +1,5 @@
 {% set name = "psycopg-pool" %}
-{% set version = "3.2.3" %}
+{% set version = "3.2.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: bb942f123bef4b7fbe4d55421bd3fb01829903c95c0f33fd42b7e94e5ac9b52a
+  sha256: 61774b5bbf23e8d22bedc7504707135aaf744679f8ef9b3fe29942920746a6ed
 
 build:
   noarch: python
