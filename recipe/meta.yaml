@@ -1,5 +1,5 @@
 {% set name = "psycopg-pool" %}
-{% set version = "3.2.7" %}
+{% set version = "3.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: a77d531bfca238e49e5fb5832d65b98e69f2c62bfda3d2d4d833696bdc9ca54b
+  sha256: 854e17c2a637c3b9f8d8b24faad57d4cf850baf3fc03ca56ef7e5b4998e391b9
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
     - setuptools >=49.2.0
     - pip
   run:
+    - typing_extensions >=4.6
     - python >={{ python_min }}
     - typing-extensions >=4.6
 
