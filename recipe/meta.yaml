@@ -20,9 +20,8 @@ requirements:
     - setuptools >=49.2.0
     - pip
   run:
-    - typing_extensions >=4.6
     - python >={{ python_min }}
-    - typing-extensions >=4.6
+    - typing_extensions >=4.6
 
 test:
   imports:
