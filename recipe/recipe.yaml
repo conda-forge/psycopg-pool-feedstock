@@ -1,0 +1,46 @@
+schema_version: 1
+
+context:
+  name: psycopg-pool
+  version: "3.3.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: fa115eb2860bd88fce1717d75611f41490dec6135efb619611142b24da3f6db5
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=80.3.1
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - typing_extensions >=4.6
+
+tests:
+  - python:
+      imports:
+        - psycopg_pool
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Connection Pool for Psycopg
+  license: LGPL-3.0-or-later
+  license_file: LICENSE.txt
+  homepage: https://psycopg.org/psycopg3/
+  repository: https://github.com/psycopg/psycopg/
+  documentation: https://www.psycopg.org/psycopg3/docs/advanced/pool.html
+
+extra:
+  recipe-maintainers:
+    - xylar
