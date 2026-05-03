@@ -27,11 +27,14 @@ requirements:
     - typing_extensions >=4.6
 
 tests:
-  - python:
-      imports:
-        - psycopg_pool
-      pip_check: true
-      python_version: ${{ python_min }}
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+        - psycopg >=3.0
+    script:
+      - pip check
+      - python -c "import psycopg_pool"
 
 about:
   summary: Connection Pool for Psycopg
